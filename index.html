@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Happy Birthday Riddhi 🎂</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<!-- Confetti -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#ffb6d9,#ffd6eb,#ffeef7);
+overflow-x:hidden;
+color:white;
+}
+
+.container{
+width:100%;
+min-height:100vh;
+padding:20px;
+display:flex;
+flex-direction:column;
+align-items:center;
+text-align:center;
+}
+
+.title{
+font-size:2.5rem;
+font-weight:700;
+margin-top:20px;
+color:white;
+text-shadow:0 0 15px #ff1493;
+animation: glow 2s infinite alternate;
+}
+
+@keyframes glow{
+from{
+text-shadow:0 0 10px #fff;
+}
+to{
+text-shadow:0 0 25px #ff1493;
+}
+}
+
+.hero{
+width:100%;
+max-width:350px;
+margin-top:20px;
+border-radius:25px;
+overflow:hidden;
+box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+.hero img{
+width:100%;
+display:block;
+}
+
+.quiz-box{
+margin-top:25px;
+width:100%;
+max-width:400px;
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(10px);
+padding:25px;
+border-radius:25px;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.question{
+display:none;
+animation:fade 0.6s ease;
+}
+
+.question.active{
+display:block;
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.question h2{
+font-size:1.2rem;
+margin-bottom:20px;
+line-height:1.5;
+}
+
+input{
+width:100%;
+padding:14px;
+border:none;
+outline:none;
+border-radius:15px;
+font-size:1rem;
+margin-bottom:20px;
+}
+
+button{
+padding:12px 25px;
+border:none;
+border-radius:40px;
+background:#ff1493;
+color:white;
+font-size:1rem;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.05);
+background:#ff0080;
+}
+
+.final-card{
+display:none;
+margin-top:30px;
+background:rgba(255,255,255,0.18);
+padding:25px;
+border-radius:25px;
+backdrop-filter:blur(12px);
+box-shadow:0 10px 25px rgba(0,0,0,0.3);
+max-width:450px;
+animation:pop 1s ease;
+}
+
+@keyframes pop{
+0%{
+transform:scale(0);
+opacity:0;
+}
+100%{
+transform:scale(1);
+opacity:1;
+}
+}
+
+.gallery{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+margin-top:20px;
+}
+
+.gallery img{
+width:100%;
+border-radius:15px;
+height:220px;
+object-fit:cover;
+}
+
+.message{
+margin-top:20px;
+font-size:1.05rem;
+line-height:1.8;
+}
+
+.hearts{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+overflow:hidden;
+}
+
+.heart{
+position:absolute;
+color:#ff1493;
+font-size:20px;
+animation:float 6s linear infinite;
+}
+
+@keyframes float{
+0%{
+transform:translateY(100vh) scale(0);
+opacity:0;
+}
+50%{
+opacity:1;
+}
+100%{
+transform:translateY(-100vh) scale(1.5);
+opacity:0;
+}
+}
+
+@media(max-width:600px){
+
+.title{
+font-size:2rem;
+}
+
+.quiz-box{
+padding:18px;
+}
+
+.gallery{
+grid-template-columns:1fr;
+}
+
+.gallery img{
+height:auto;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="hearts"></div>
+
+<div class="container">
+
+<h1 class="title">🎂 Happy Birthday Riddhi Choudhary 💖</h1>
+
+<div class="hero">
+<img src="WhatsApp Image 2026-05-10 at 5.59.44 PM.png">
+</div>
+
+<div class="quiz-box">
+
+<!-- Question 1 -->
+<div class="question active">
+<h2>🍕 What do you like to eat most?</h2>
+<input type="text" placeholder="Type answer here...">
+<button onclick="nextQuestion()">Next 💖</button>
+</div>
+
+<!-- Question 2 -->
+<div class="question">
+<h2>🎈 How old do you feel today?</h2>
+<input type="text">
+<button onclick="nextQuestion()">Next ✨</button>
+</div>
+
+<!-- Question 3 -->
+<div class="question">
+<h2>🎵 Which song do you love the most?</h2>
+<input type="text">
+<button onclick="nextQuestion()">Next 🎶</button>
+</div>
+
+<!-- Question 4 -->
+<div class="question">
+<h2>🎁 Which gift are you most excited for this year?</h2>
+<input type="text">
+<button onclick="nextQuestion()">Next 🎀</button>
+</div>
+
+<!-- Question 5 -->
+<div class="question">
+<h2>💖 Who is your favourite person?</h2>
+<input type="text">
+<button onclick="nextQuestion()">Next 💕</button>
+</div>
+
+<!-- Question 6 -->
+<div class="question">
+<h2>😊 What is your happiest memory and with who?</h2>
+<input type="text">
+<button onclick="nextQuestion()">Next 🌸</button>
+</div>
+
+<!-- Question 7 -->
+<div class="question">
+<h2>📏 What is your height?</h2>
+<input type="text">
+<button onclick="nextQuestion()">Next 📸</button>
+</div>
+
+<!-- Question 8 -->
+<div class="question">
+<h2>⚖️ What is your weight?</h2>
+<input type="text">
+<button onclick="nextQuestion()">Next 🎂</button>
+</div>
+
+<!-- Question 9 -->
+<div class="question">
+<h2>🧩 Final Puzzle: Type "Happy Birthday Riddhi"</h2>
+<input type="text" id="finalAnswer">
+<button onclick="finishQuiz()">Unlock Surprise 🎉</button>
+</div>
+
+</div>
+
+<!-- Final Birthday Card -->
+<div class="final-card" id="birthdayCard">
+
+<h2>💝 A Special Message For Riddhi 💝</h2>
+
+<div class="gallery">
+
+<img src="WhatsApp Image 2026-05-10 at 5.59.44 PM.png">
+
+<img src="WhatsApp Image 2026-05-10 at 5.59.45 PM.png">
+
+<img src="WhatsApp Image 2026-05-10 at 5.59.46 PM.png">
+
+<img src="WhatsApp Image 2026-05-10 at 5.59.47 PM.png">
+
+</div>
+
+<p class="message">
+
+Dear <b>Riddhi Choudhary</b> 💖✨ <br><br>
+
+Happy Birthday to the most beautiful soul 🌸  
+May your smile always shine brighter than the stars ✨  
+May happiness follow you forever 💕  
+
+Today is your special day 🎂  
+Enjoy every second, laugh loudly, smile endlessly and always stay amazing 💫  
+
+You deserve unlimited happiness, love and magical memories 💝  
+
+Happy Birthday Princess 👑🎀
+
+</p>
+
+</div>
+
+</div>
+
+<script>
+
+let currentQuestion = 0;
+const questions = document.querySelectorAll('.question');
+
+function nextQuestion(){
+
+questions[currentQuestion].classList.remove('active');
+
+currentQuestion++;
+
+questions[currentQuestion].classList.add('active');
+
+}
+
+function finishQuiz(){
+
+const answer = document.getElementById('finalAnswer').value;
+
+if(answer.toLowerCase().includes("happy birthday riddhi")){
+
+document.getElementById('birthdayCard').style.display = "block";
+
+confetti({
+particleCount:300,
+spread:150,
+origin:{ y:0.6 }
+});
+
+for(let i=0;i<5;i++){
+
+setTimeout(()=>{
+confetti({
+particleCount:200,
+spread:180
+});
+},i*500);
+
+}
+
+window.scrollTo({
+top:document.body.scrollHeight,
+behavior:'smooth'
+});
+
+}else{
+
+alert("❌ Solve the final puzzle correctly!");
+
+}
+
+}
+
+function createHearts(){
+
+const heart = document.createElement("div");
+
+heart.classList.add("heart");
+
+heart.innerHTML = "💖";
+
+heart.style.left = Math.random()*100 + "vw";
+
+heart.style.fontSize = Math.random()*20 + 15 + "px";
+
+heart.style.animationDuration = Math.random()*3 + 3 + "s";
+
+document.querySelector(".hearts").appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},6000);
+
+}
+
+setInterval(createHearts,300);
+
+</script>
+
+</body>
+</html>
